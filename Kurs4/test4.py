@@ -6,8 +6,8 @@ __author__ = 'test'
 
 def main():
 
-    name = input("Cześć jestem Zed motocyklista, jak masz na imię? ")
-    print("Miło Cię poznać " + name + "!")
+    name = input("Cześć jestem Zed, jak masz na imię? ")
+    print("Super " + name + ", miło Cię poznać")
 
     choices = dict(
         r6 = 'Yamaha, Super moja ulubiona marka',
