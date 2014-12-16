@@ -7,7 +7,7 @@ import re
 def main():
 
 
-   input_str = input('Cześć jestem Zed, a Ty jak masz na imię?')
+   input_str = input('Cześć jestem Zed, a Ty jak masz na imię1?')
    if not re.match('^[a-z]*$', input_str.lower()):
       print ('Dozwolne są tylko litery a-z!')
 
@@ -37,14 +37,24 @@ def main():
    print(model.get(v.lower(), "tego modelu nie znam"))
 
 
+import  sqlite3
 
-
-
-
-
+def main():
+    db = sqlite3.connect('moto.db')
+    db.execute('drop table if exists moto')
+    db.execute('create table moto (i1 int, model text, marka text, rocznik int, moc int)')
+    db.execute('insert into moto (i1, model, marka, rocznik, moc) values (?,?,?,?,?)', (1, 'r6', 'yamaha', 2008, 135))
+    db.execute('insert into moto (i1, model, marka, rocznik, moc) values (?,?,?,?,?)', (2, 'zx6r', 'kawasaki', 2009, 124))
+    db.execute('insert into moto (i1, model, marka, rocznik, moc) values (?,?,?,?,?)', (3, 'gsxr', 'suzuki', 2006, 116))
+    db.execute('insert into moto (i1, model, marka, rocznik, moc) values (?,?,?,?,?)', (4, 'cbr', 'honda', 2010, 140))
+    db.commit()
+    cursor = db.execute('select * from moto order by i1')
+    for row in cursor:
+        print(row)
 
 if __name__ == '__main__':
     main()
+
 
 
 
