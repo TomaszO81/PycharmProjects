@@ -21,7 +21,7 @@ def main():
    else:
       print("Super " + input_str + ", miło Cię poznać")
 
-   choices = dict(
+   model = dict(
         r6 = 'Yamaha, Super moja ulubiona marka',
         yamaha = 'Yamaha, Super moja ulubiona marka',
         gsxr= 'Suzuki, Miałem kiedys GS500F 2005r',
@@ -34,74 +34,17 @@ def main():
         Ducatti='Ducatti paniagale, pozazdroscic',
    )
    v = input('Jakim motocyklem jezdzisz?')
-   print(choices.get(v.lower(), "tego nie znam"))
-
-if __name__ == '__main__':
-    main()
+   print(model.get(v.lower(), "tego modelu nie znam"))
 
 
 
-'''
-import re
-
-def main():
-    fh = open ('raven.txt')
-    for line in fh:
-        if re.search('(Len|Neverm)ore',line):
-            print(line, end=' ')
-if __name__ == '__main__':
-    main()
 
 
 
-import re
-def main():
-    fh = open ('raven.txt')
-    for line in fh:
-        match = re.search('(Len|Neverm)ore',line)
-        if match:
-            print(match.group())
-
-if __name__ == '__main__':
-    main()
-
-
-
-import re
-
-def main():
-    fh = open ('raven.txt')
-    for line in fh:
-        print(re.sub('(Len|Neverm)ore', '###', line), end=' ')
-
-if __name__ == '__main__':
-    main()
-
-
-import re
-
-def main():
-    fh = open ('raven.txt')
-    for line in fh:
-        match = re.search('(Len|Neverm)ore', line)
-        if match:
-            print(line.replace(match.group(), '###')),
 
 
 if __name__ == '__main__':
     main()
 
 
-import re
-def main():
-    fh = open ('raven.txt')
-    pattern = re.compile('(Len|Neverm)ore', re.IGNORECASE)
-    for line in fh:
-        if re.search(pattern,line):
-            print(pattern.sub('###', line), end=' ')
 
-if __name__ == '__main__':
-    main()
-
-
-'''
