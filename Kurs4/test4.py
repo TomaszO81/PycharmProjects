@@ -55,7 +55,7 @@ def main1():
 
 if __name__ == '__main__':
     main()
-    main12()
+    main1()
 
 
 
