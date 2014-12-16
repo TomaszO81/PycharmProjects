@@ -39,7 +39,7 @@ def main():
 
 import  sqlite3
 
-def main():
+def main1():
     db = sqlite3.connect('moto.db')
     db.execute('drop table if exists moto')
     db.execute('create table moto (i1 int, model text, marka text, rocznik int, moc int)')
@@ -52,8 +52,10 @@ def main():
     for row in cursor:
         print(row)
 
+
 if __name__ == '__main__':
     main()
+    main12()
 
 
 
