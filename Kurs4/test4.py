@@ -54,7 +54,7 @@ def main():
    marki = {}
    marki['yamaha', 'honda', 'suzuki'] ={}
 
-   marki = input('Jama marka motocykla jeździsz?')
+   marki = input('Jaka marką motocykla jeździsz?')
    if marki == 'yamaha':
        print(yamaha())
    else:
@@ -75,10 +75,11 @@ def yamaha():
 
 
    v1 = input('Jaki rocznik?')
-   if v1=='r6':
-       print('MOJ WARUNEK!')
+
+   if v1=='1999':
+       pass
    else:
-       print('może byc R6, R7, R8, R9, R10, R11, R12')
+       print('Podaj rocznik od 1999-2015')
 
 
 
@@ -136,9 +137,11 @@ def yamaha():
 
    }
 
-   model2['r7'] = {}
-   model2['r7']['info'] = 'Yamaha YZF-R6'
-   model2['r7']['data'] = {
+   model2['2001'] = {}
+   model2['2002'] = {}
+   model2['2001']['info'] = 'Yamaha YZF-R6'
+   model2['2002']['info'] = 'Yamaha YZF-R6'
+   model2['2001']['data'] = model2['2002']['data']= {
        'rokProdukcji'          : '2001/2002',
        'oznaczenie'            : 'RJ03',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
@@ -187,9 +190,11 @@ def yamaha():
    }
 
 
-   model2['r8'] = {}
-   model2['r8']['info'] = 'Yamaha YZF-R6'
-   model2['r8']['data'] = {
+   model2['2003'] = {}
+   model2['2004'] = {}
+   model2['2003']['info'] = 'Yamaha YZF-R6'
+   model2['2004']['info'] = 'Yamaha YZF-R6'
+   model2['2003']['data'] = model2['2004']['data']= {
        'rokProdukcji'          : '2003/2004',
        'oznaczenie'            : 'RJ05/RJ09',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
@@ -238,9 +243,11 @@ def yamaha():
    }
 
 
-   model2['r9'] = {}
-   model2['r9']['info'] = 'Yamaha YZF-R6'
-   model2['r9']['data'] = {
+   model2['2005'] = {}
+   model2['2006'] = {}
+   model2['2005']['info'] = 'Yamaha YZF-R6'
+   model2['2006']['info'] = 'Yamaha YZF-R6'
+   model2['2005']['data'] = model2['2006']['data']= {
        'rokProdukcji'          : '2005/2006',
        'oznaczenie'            : 'RJ095',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
@@ -289,9 +296,11 @@ def yamaha():
    }
 
 
-   model2['r10'] = {}
-   model2['r10']['info'] = 'Yamaha YZF-R6'
-   model2['r10']['data'] = {
+   model2['2006'] = {}
+   model2['2007'] = {}
+   model2['2006']['info'] = 'Yamaha YZF-R6'
+   model2['2007']['info'] = 'Yamaha YZF-R6'
+   model2['2006']['data'] = model2['2007']['data']= {
        'rokProdukcji'          : '2006/2007',
        'oznaczenie'            : 'RJ11',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
@@ -340,9 +349,11 @@ def yamaha():
    }
 
 
-   model2['r11'] = {}
-   model2['r11']['info'] = 'Yamaha YZF-R6'
-   model2['r11']['data'] = {
+   model2['2008'] = {}
+   model2['2009'] = {}
+   model2['2008']['info'] = 'Yamaha YZF-R6'
+   model2['2009']['info'] = 'Yamaha YZF-R6'
+   model2['2008']['data'] = model2['2009']['data']= {
        'rokProdukcji'          : '2008/2009',
        'oznaczenie'            : 'RJ15',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
@@ -392,9 +403,19 @@ def yamaha():
 
 
 
-   model2['r12'] = {}
-   model2['r12']['info'] = 'Yamaha YZF-R6'
-   model2['r12']['data'] = {
+   model2['2010'] = {}
+   model2['2011'] = {}
+   model2['2012'] = {}
+   model2['2013'] = {}
+   model2['2014'] = {}
+   model2['2015'] = {}
+   model2['2010']['info'] = 'Yamaha YZF-R6'
+   model2['2011']['info'] = 'Yamaha YZF-R6'
+   model2['2012']['info'] = 'Yamaha YZF-R6'
+   model2['2013']['info'] = 'Yamaha YZF-R6'
+   model2['2014']['info'] = 'Yamaha YZF-R6'
+   model2['2015']['info'] = 'Yamaha YZF-R6'
+   model2['2010']['data'] = model2['2011']= model2['2012']= model2['2013']= model2['2014']= model2['2015']['data']= {
        'rokProdukcji'          : '2010',
        'oznaczenie'            : 'RJ15',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
