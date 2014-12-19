@@ -79,13 +79,13 @@ def yamaha():
        print('może byc R6, R7, R8, R9, R10, R11, R12')
 
 
+   model2['r6'] = range(1999,2000)
 
 
 
-
-   model2['1999','2000'] = {}
-   model2['1999','2000']['info'] = 'Yamaha YZF-R6'
-   model2['1999','2000']['data'] = {
+   model2['r6'] = {}
+   model2['r6']['info'] = 'Yamaha YZF-R6'
+   model2['r6']['data'] = {
        'rokProdukcji'          : '1999/2000',
        'oznaczenie'            : 'RJ03',
        'typ'                   : 'Rzędowy, 4-suwowy, 4-cylindrowy, chłodzony cieczą, 16-zaworowy DOHC',
