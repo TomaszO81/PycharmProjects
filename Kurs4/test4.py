@@ -45,7 +45,7 @@ def main():
       print ('Naprawde nazwyasz się?:', input_str)
 
    else:
-      print("Super " + input_str + ", miło Cię poznać")
+      print("Super " + input_str.capitalize() + ", miło Cię poznać")
 
 
 
