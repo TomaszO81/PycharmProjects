@@ -1,0 +1,55 @@
+ECHO OFF
+Title RAPIDREPORTER FOLDER AND FILE ORGANIZER
+CLS
+:MENU
+ECHO.
+ECHO _________________________________________________________________
+ECHO PRESS 1, 2 OR 3 to select your task, or 4 to EXIT.
+echo To program grupujacy pliki i foldery dla aplikacji Rapidreporter.
+echo Autor:Tomasz Ogorek 2013r-2014r. NO WARRANTY
+ECHO -----------------------------------------------------------------
+ECHO.
+ECHO 1 - Open Notepad
+ECHO 2 - Open Calculator
+ECHO 3 - Uruchom TESTY
+ECHO 4 - EXIT
+ECHO.
+SET /P M=Type 1, 2, 3, or 4 then press ENTER:
+IF %M%==1 GOTO NOTE
+IF %M%==2 GOTO CALC
+IF %M%==3 GOTO TESTY
+IF %M%==4 GOTO EOF
+:NOTE
+cd %windir%\system32\notepad.exe
+start notepad.exe
+GOTO MENU
+:CALC
+cd %windir%\system32\calc.exe
+start calc.exe
+GOTO MENU
+:BOTH
+cd %windir%\system32\notepad.exe
+start notepad.exe
+cd %windir%\system32\calc.exe
+start calc.exe
+GOTO MENU
+:TESTY
+ECHO 1.TWORZENIE STRUKTURY KATOLOGOW.
+echo.
+ECHO 2.KOPIOWANIE PLIKU RAPIDREPORTER do FOLDERU TEST\LMSBialystok\aukaulanadataigodzina\Bledy\
+
+Xcopy C:\RapidReporter.exe TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+
+echo.
+ECHO 3.USUNIECIE UPRAWNIENIA ARCHIWLANEGO NA PLIKU RAPIDREPORTER.EXE
+attrib -r C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\*.* /s
+
+
+echo.
+ECHO 4.WARUNEK URUCHOMIENIA PLIKU RAPIDREPORTER.EXE Z LOKALIZACJI C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+IF EXIST C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe. (
+ cmd.exe /c start "RapidReporter.exe" TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe
+) ELSE (
+echo Brakuje Pliku RapidReporter.exe ! .
+)
+GOTO MENU
