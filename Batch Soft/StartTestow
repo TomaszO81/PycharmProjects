@@ -56,10 +56,10 @@ rem for /f "tokens=2 delims=^/^: pa" %%i in ('time /t') do set DMINU=%%i
 set DATE=%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%
 
 cmd.exe /c mkdir TESTY\Archiwum
-cmd.exe /c mkdir TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
-cmd.exe /c mkdir TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Danetestowe\
-cmd.exe /c mkdir TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Filmiki\
-cmd.exe /c mkdir TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Skrypty\
+cmd.exe /c mkdir TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+cmd.exe /c mkdir TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Danetestowe\
+cmd.exe /c mkdir TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Filmiki\
+cmd.exe /c mkdir TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Skrypty\
 
 
 cmd.exe /c mkdir TESTY\CAT\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
@@ -68,9 +68,9 @@ cmd.exe /c mkdir TESTY\CAT\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Filmiki\
 cmd.exe /c mkdir TESTY\CAT\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Skrypty\
 
 echo.
-ECHO 2.KOPIOWANIE PLIKU RAPIDREPORTER do FOLDERU TEST\LMSBialystok\aukaulanadataigodzina\Bledy\
+ECHO 2.KOPIOWANIE PLIKU RAPIDREPORTER do FOLDERU TEST\Projket1\aukaulanadataigodzina\Bledy\
 
-Xcopy C:\RapidReporter.exe TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+Xcopy C:\RapidReporter.exe TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
 
 echo.
 ECHO 3.USUNIECIE UPRAWNIENIA ARCHIWLANEGO NA PLIKU RAPIDREPORTER.EXE
@@ -78,9 +78,9 @@ attrib -r C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy
 
 
 echo.
-ECHO 4.WARUNEK URUCHOMIENIA PLIKU RAPIDREPORTER.EXE Z LOKALIZACJI C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
-IF EXIST C:\TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe. (
- cmd.exe /c start "RapidReporter.exe" TESTY\LMSBialystok\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe
+ECHO 4.WARUNEK URUCHOMIENIA PLIKU RAPIDREPORTER.EXE Z LOKALIZACJI C:\TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+IF EXIST C:\TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe. (
+ cmd.exe /c start "RapidReporter.exe" TESTY\Projket1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe
 ) ELSE (
 echo Brakuje Pliku RapidReporter.exe ! .
 )

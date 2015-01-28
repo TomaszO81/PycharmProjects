@@ -1,0 +1,110 @@
+ECHO OFF
+Title Start Testow
+CLS
+:MENU
+ECHO.
+ECHO _________________________________________________________________
+echo To program grupujacy pliki i foldery dla aplikacji Rapidreporter.
+echo Mozna tez uruchomic Notatnik, Paint, Kalkulator.
+echo Program obsluguje niektore funkcje SP2KTool.
+echo Autor:Tomasz Ogorek 2013r-2015r. NO WARRANTY
+ECHO -----------------------------------------------------------------
+ECHO.
+ECHO 1 - Otworzyc Notatnik
+ECHO 2 - Otworzyc Paint
+ECHO 3 - Otworzyc Kalkulator
+ECHO 4 - Uruchom TESTY
+ECHO.
+ECHO 5 - ogorek-t Updcluster - podnosi wersje aplikacji
+ECHO 6 - ogorek-t Restore bazki
+ECHO 7 - ogorek-t Userrepair - Umozliwa poprawne podlacznie uzytkownikow
+ECHO 8 - ogorek-t Dropdatabases - Likwiduje bazke i Ksiupy uzytkownikow
+ECHO.
+ECHO 9 - EXIT
+ECHO.
+SET /P M=Info: Wybierz odpowiednia cyfre a nastepnie wcisnij ENTER:
+IF %M%==1 GOTO NOTE
+IF %M%==2 GOTO PAINT
+IF %M%==3 GOTO CALC
+IF %M%==4 GOTO TESTY
+IF %M%==5 GOTO updcluster
+IF %M%==6 GOTO Restore
+IF %M%==7 GOTO Userrepair
+IF %M%==8 GOTO Dropdatabases
+IF %M%==9 GOTO EOF
+:NOTE
+cd %windir%\system32\notepad.exe
+start notepad.exe
+GOTO MENU
+:CALC
+cd %windir%\system32\calc.exe
+start calc.exe
+GOTO MENU
+:BOTH
+cd %windir%\system32\notepad.exe
+start notepad.exe
+cd %windir%\system32\calc.exe
+start calc.exe
+GOTO MENU
+:PAINT
+cd %windir%\system32\mspaint.exe
+start mspaint.exe
+GOTO MENU
+:updcluster
+cd D:\WersjeSP2000\150109_1502\cmd.exe
+cmd.exe  /c  "SP2KTool.exe install updcluster "ogorek-t" "SP2K_TRUNK" -cleanpfv -sameversion -nobackup "
+GOTO MENU
+:Restore
+cd D:\WersjeSP2000\150109_1502\cmd.exe
+cmd.exe  /c  "SP2KTool sql database restore "ogorek-t" "SP2K_TRUNK" "d:\Bazy\Trunk\SP2K_TRUNK.bak" -override -pathtomdf "d:\Bazy\trunk\""
+GOTO MENU
+:Userrepair
+cd D:\WersjeSP2000\150109_1502\cmd.exe
+cmd.exe  /c  "SP2KTool sql database userrepair "ogorek-t" "SP2K_TRUNK""
+GOTO MENU
+:Dropdatabases
+cd D:\WersjeSP2000\150109_1502\cmd.exe
+cmd.exe  /c  "SP2KTool.exe sql unprepare "ogorek-t" -dropdatabases"
+GOTO MENU
+
+
+
+:TESTY
+ECHO 1.TWORZENIE STRUKTURY KATOLOGOW.
+:DATE
+rem Przetwarzamy date /t na zmienne:
+rem DWEEK : dzien tygodnia
+rem DMDAY : dzien miesiaca
+rem DMONT : miesiac
+rem DYEAR : rok
+rem DHOUR : godziny (bez rozroznienia PM/AM)
+rem DMINU : minuty
+for /f "tokens=1 delims=^/ " %%i in ('date /t') do set DWEEK=%%i
+for /f "tokens=2 delims=^/ " %%i in ('date /t') do set DMDAY=%%i
+for /f "tokens=3 delims=^/ " %%i in ('date /t') do set DMONT=%%i
+for /f "tokens=4 delims=^/ " %%i in ('date /t') do set DYEAR=%%i
+for /f "tokens=1 delims=^/^: " %%i in ('time /t') do set DHOUR=%%i
+for /f "tokens=2 delims=^/^: " %%i in ('time /t') do set DMINU=%%i
+rem for /f "tokens=1 delims=^/^: pa" %%i in ('time /t') do set DHOUR=%%i
+rem for /f "tokens=2 delims=^/^: pa" %%i in ('time /t') do set DMINU=%%i
+set DATE=%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%
+cmd.exe /c mkdir TESTY\Archiwum
+cmd.exe /c mkdir TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+cmd.exe /c mkdir TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Danetestowe\
+cmd.exe /c mkdir TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Filmiki\
+cmd.exe /c mkdir TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Skrypty\
+
+echo.
+ECHO 2.KOPIOWANIE PLIKU RAPIDREPORTER do FOLDERU TEST\Projekt1\aukaulanadataigodzina\Bledy\
+copy d:\WersjeSP2000\150109_1502\RapidReporter.exe TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+echo.
+
+ECHO 4.WARUNEK URUCHOMIENIA PLIKU RAPIDREPORTER.EXE Z LOKALIZACJI d:\WersjeSP2000\150109_1502\TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\
+IF EXIST d:\WersjeSP2000\150109_1502\TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe. (
+cmd.exe /c start "RapidReporter.exe" d:\WersjeSP2000\150109_1502\TESTY\Projekt1\%DYEAR%%DMONT%%DMDAY%%DWEEK%%DHOUR%%DMINU%\Bledy\RapidReporter.exe
+
+) ELSE (
+echo Brakuje Pliku RapidReporter.exe ! .
+)
+GOTO MENU
+
